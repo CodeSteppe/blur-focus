@@ -40,7 +40,7 @@ h1 {
   transform: translate(calc(var(--x) * 0.1), calc(var(--y) * 0.1));
 }
 
-.cirlce {
+.halo {
   position: fixed;
   top: calc(var(--r) * -1);
   left: calc(var(--r) * -1);
