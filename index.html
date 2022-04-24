@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blur focus</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="blur">
+    <div class="focus">
+      <h1>heave<br /> on earth</h1>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('mousemove', function (e) {
+      const { offsetX, offsetY } = e;
+      const focus = document.querySelector('.focus');
+      focus.style.clipPath = `circle(240px at ${offsetX}px ${offsetY}px )`;
+    });
+  </script>
+</body>
+
+</html>
