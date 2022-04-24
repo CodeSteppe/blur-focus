@@ -17,10 +17,29 @@
   </div>
 
   <script>
+    function throttle(fn, interval) {
+      let lastTime = 0;
+      return function (...args) {
+        const now = Date.now();
+        if (now - lastTime > interval) {
+          fn.apply(this, args);
+          lastTime = now;
+        }
+      }
+    }
+
+    const moveTitle = throttle(function (offsetX, offsetY) {
+      const title = document.querySelector('h1');
+      const translateX = 0.1 * (offsetX - window.innerWidth / 2);
+      const translateY = 0.1 * (offsetY - window.innerHeight / 2);
+      title.style.transform = `translate(${translateX}px, ${translateY}px`;
+    }, 200);
+
     document.addEventListener('mousemove', function (e) {
       const { offsetX, offsetY } = e;
       const focus = document.querySelector('.focus');
-      focus.style.clipPath = `circle(240px at ${offsetX}px ${offsetY}px )`;
+      focus.style.clipPath = `circle(260px at ${offsetX}px ${offsetY}px )`;
+      moveTitle(offsetX, offsetY);
     });
   </script>
 </body>
