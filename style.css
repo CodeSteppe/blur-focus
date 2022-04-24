@@ -11,38 +11,42 @@ body {
   overflow: hidden;
   background: url(./bg.jpg) no-repeat;
   background-size: cover;
-}
-
-h1 {
-  font-size: 120px;
-  padding: 0 20px;
-  font-family: "Rajdhani";
-  text-transform: uppercase;
-  color: #fff;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: fit-content;
-  height: fit-content;
-  pointer-events: none;
-  text-align: center;
-  transition: transform 0.5s;
+  cursor: pointer;
 }
 
 .blur {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(10px);
-  position: relative;
 }
 
 .focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background: url(./bg.jpg) no-repeat;
   background-size: cover;
-  clip-path: circle(260px);
+  clip-path: circle(var(--r) at var(--x) var(--y));
+}
+
+h1 {
+  font-size: 120px;
+  font-family: "Rajdhani";
+  text-transform: uppercase;
+  color: #fff;
+  pointer-events: none;
+  transform: translate(calc(var(--x) * 0.1), calc(var(--y) * 0.1));
+}
+
+.cirlce {
+  position: fixed;
+  top: calc(var(--r) * -1);
+  left: calc(var(--r) * -1);
+  transform: translate(var(--x), var(--y));
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border-radius: var(--r);
+  box-shadow: inset 0 0 20px #fff;
 }
