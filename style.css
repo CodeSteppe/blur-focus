@@ -11,6 +11,7 @@ body {
   overflow: hidden;
   background: url(./bg.jpg) no-repeat;
   background-size: cover;
+  background-position: center;
   cursor: pointer;
 }
 
@@ -28,6 +29,7 @@ body {
   height: 100%;
   background: url(./bg.jpg) no-repeat;
   background-size: cover;
+  background-position: center;
   clip-path: circle(var(--r) at var(--x) var(--y));
 }
 
